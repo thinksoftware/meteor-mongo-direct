@@ -1,6 +1,6 @@
 # MongoDB Direct Access Functions
 
-**Current Version:** `1.0.0 (2014/10/30)`
+**Current Version:** `1.0.1 (2014/10/30)`
 
 Updated to work with Meteor 1.0.
 
