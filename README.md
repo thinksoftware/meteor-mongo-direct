@@ -15,7 +15,7 @@ Extends `Meteor.Collection` on the server with direct access calls to the MongoD
 
 Works on the serverside and eliminates overhead and latency compensation when communicating with the database.
 
-Inserts generate an ID based on the `Meteor.Collection.ObjectID()` function. Most functions should work the same as their regular counterparts save for any reactivity.
+Inserts generate an ID based on the `Mongo.Collection.ObjectID()` function. Most functions should work the same as their regular counterparts save for any reactivity.
 
 **Note:** *This package is a work in progress but greatly speeds up database processing if large data is to be manipulated on the server-side and the OpLog should update the reactivity
 component of the clients with the results.*
@@ -31,7 +31,7 @@ To install the package simply type `meteor add thinksoftware:mongo-direct` in yo
 ## Example
 
 ```
-Test = new Meteor.Collection('test');
+Test = new Mongo.Collection('test');
 
 if (Meteor.isServer) {
   Meteor.startup(function() {
