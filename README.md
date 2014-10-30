@@ -4,7 +4,7 @@
 
 Updated to work with Meteor 1.0.
 
-Extends `Meteor.Collection` on the server with direct access calls to the MongoDB driver.
+Extends `Mongo.Collection` on the server with direct access calls to the MongoDB driver.
 
 - `directFind(selector, options)`
 - `directFindOne(selector, options)`
