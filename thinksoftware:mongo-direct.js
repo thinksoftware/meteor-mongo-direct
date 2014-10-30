@@ -23,7 +23,9 @@ var MongoDirect = {
   
 };
 
-_.extend(Meteor.Collection.prototype, MongoDirect);
+if (!constr) constr = typeof Mongo !== "undefined" ? Mongo.Collection : Meteor.Collection;
+
+_.extend(constr.prototype, MongoDirect);
 
 // ---------------------------------------//
 
@@ -31,7 +33,7 @@ doInsertRecord = function(file, data) {
 
   var fut = new Future();
 
-  var mid = new Meteor.Collection.ObjectID()
+  var mid = new constr.ObjectID()
   data._id = mid._str;
   
   MongoInternals.defaultRemoteCollectionDriver().mongo.db.collection(file).insert(data, function(err,res) {

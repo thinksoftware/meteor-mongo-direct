@@ -1,13 +1,14 @@
 Package.describe({
   name: 'thinksoftware:mongo-direct',
-  summary: ' /* Fill me in! */ ',
+  summary: 'Meteor MongoDB Direct Collection Extension',
   version: '1.0.0',
   git: ' /* Fill me in! */ '
 });
 
 Package.onUse(function(api) {
   api.versionsFrom('1.0');
-  api.addFiles('thinksoftware:mongo-direct.js');
+  api.use(['underscore', 'mongo']);
+  api.addFiles('thinksoftware:mongo-direct.js', ['server']);
 });
 
 Package.onTest(function(api) {
