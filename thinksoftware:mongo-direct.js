@@ -33,22 +33,17 @@ doInsertRecord = function(file, data) {
 
   var fut = new Future();
 
-  var mid = new constr.ObjectID();
   var returnId = new constr.ObjectID();
 
-  if (!data._id) {
-    if (Object.prototype.toString.call(data) === '[object Array]') {
-      returnId = [];
-      data.forEach(function (doc) {
-        doc._id = new constr.ObjectID()._str;
-        returnId.push(doc._id);
-      });
-    } else {
-      var mid = new constr.ObjectID()
-      data._id = mid._str;
-      returnId = data._id;
-    }
+  if (Object.prototype.toString.call(data) === '[object Array]') {
+    returnId = [];
+    data.forEach(function (doc) {
+      doc._id = doc._id || new constr.ObjectID()._str;
+      returnId.push(doc._id);
+    });
   } else {
+    var mid = new constr.ObjectID()
+    data._id = data._id || mid._str;
     returnId = data._id;
   }
 

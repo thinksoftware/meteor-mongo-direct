@@ -80,4 +80,26 @@ if (Meteor.isServer) {
     test.equal(coll.directFindOne()._id.customId, 'custom', 'The ID should have a nested field');
   });
 
+
+  Tinytest.add('mongo-direct - directInsert - Inserting an array with IDs should keep those IDs', function (test) {
+    var coll = TestCollection;
+    coll.remove({});
+
+    var docsWithIDs = [
+      {field: 'data', _id: {customId: 'custom'}},
+      {field: 'data', _id: {customId: 'another'}}
+    ];
+
+    var result = coll.directInsert(docsWithIDs);
+
+    test.equal(coll.find().count(), 2, 'There should be two documents');
+
+    var i = 0;
+    coll.directFind().forEach(function (doc) {
+      i++;
+      test.equal(typeof doc._id.customId, 'string', 'Document ' + i + ' should have a customId as a string');
+    });
+
+  });
+
 }
