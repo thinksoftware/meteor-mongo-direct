@@ -1,6 +1,6 @@
 # MongoDB Direct Access Functions
 
-**Current Version:** `1.0.1 (2014/10/30)`
+**Current Version:** `1.0.2 (2014/11/11)`
 
 Updated to work with Meteor 1.0.
 
@@ -39,6 +39,8 @@ if (Meteor.isServer) {
     console.log("Add: " + Test.directInsert({test: "123"}));
     console.log("Add: " + Test.directInsert({test: "123"}));
     console.log("Add: " + Test.directInsert({test: "123"}));
+
+    console.log("Add two docs: " + Test.directInsert([{test: "123"}, {test: "456"}]));
     
     console.log("Update: " + Test.directUpdate({test: "123"}, {$set: {foo: "bar"}}))
     
@@ -64,6 +66,8 @@ Should generate results on the server console similar to the following:
 Add: 4e11ddf0f432ff024b7b2d0a
 Add: f61450d79e0c42f2adb6d1e5
 Add: d9d1ad1a30e371ec2c150e8b
+
+Add two docs: 236b8d0561dc10c8c68c775b,c19aadee76b31861c68287ac
 
 Update: 1
 
