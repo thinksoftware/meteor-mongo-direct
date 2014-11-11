@@ -91,6 +91,7 @@ Count: 0
 ## Contributors
 
 - Aaron Thorp ([http://www.aaronthorp.com](http://www.aaronthorp.com))
+- David Andersson ([https://github.com/chhib](https://github.com/chhib))
 
 [![Support us via Gittip][gittip-badge]][aaronthorp]
 
