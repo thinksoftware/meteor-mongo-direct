@@ -1,4 +1,5 @@
 # MongoDB Direct Access Functions
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/thinksoftware/meteor-mongo-direct?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 **Current Version:** `1.0.1 (2014/10/30)`
 
