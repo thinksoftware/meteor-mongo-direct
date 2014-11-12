@@ -1,6 +1,8 @@
 # MongoDB Direct Access Functions
 
-**Current Version:** `1.0.1 (2014/10/30)`
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/thinksoftware/meteor-mongo-direct?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+**Current Version:** `1.0.2 (2014/11/11)`
 
 Updated to work with Meteor 1.0.
 
@@ -35,25 +37,27 @@ Test = new Mongo.Collection('test');
 
 if (Meteor.isServer) {
   Meteor.startup(function() {
-    
+
     console.log("Add: " + Test.directInsert({test: "123"}));
     console.log("Add: " + Test.directInsert({test: "123"}));
     console.log("Add: " + Test.directInsert({test: "123"}));
-    
+
+    console.log("Add two docs: " + Test.directInsert([{test: "123"}, {test: "456"}]));
+
     console.log("Update: " + Test.directUpdate({test: "123"}, {$set: {foo: "bar"}}))
-    
+
     console.log("FindOne:");
     console.log(Test.directFindOne({foo: "bar"}));
-    
+
     console.log("Exists: "+ Test.directExists({test: "123"}));
 
-    console.log("Find:"); 
+    console.log("Find:");
     console.log(Test.directFind({test:"123"}));
-   
+
     console.log("Remove: "+ Test.directRemove({test: "123"}));
-    
+
     console.log("Count: " + Test.directFind({test:"123"}).length);
-    
+
   });
 }
 ```
@@ -64,6 +68,8 @@ Should generate results on the server console similar to the following:
 Add: 4e11ddf0f432ff024b7b2d0a
 Add: f61450d79e0c42f2adb6d1e5
 Add: d9d1ad1a30e371ec2c150e8b
+
+Add two docs: 236b8d0561dc10c8c68c775b,c19aadee76b31861c68287ac
 
 Update: 1
 
@@ -87,9 +93,9 @@ Count: 0
 ## Contributors
 
 - Aaron Thorp ([http://www.aaronthorp.com](http://www.aaronthorp.com))
+- David Andersson ([https://github.com/chhib](https://github.com/chhib))
 
 [![Support us via Gittip][gittip-badge]][aaronthorp]
 
 [gittip-badge]: https://raw.github.com/twolfson/gittip-badge/0.1.0/dist/gittip.png
 [aaronthorp]: https://www.gittip.com/aaronthorp/
-
