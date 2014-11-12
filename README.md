@@ -1,5 +1,7 @@
 # MongoDB Direct Access Functions
 
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/thinksoftware/meteor-mongo-direct?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 **Current Version:** `1.0.2 (2014/11/11)`
 
 Updated to work with Meteor 1.0.
@@ -35,27 +37,27 @@ Test = new Mongo.Collection('test');
 
 if (Meteor.isServer) {
   Meteor.startup(function() {
-    
+
     console.log("Add: " + Test.directInsert({test: "123"}));
     console.log("Add: " + Test.directInsert({test: "123"}));
     console.log("Add: " + Test.directInsert({test: "123"}));
 
     console.log("Add two docs: " + Test.directInsert([{test: "123"}, {test: "456"}]));
-    
+
     console.log("Update: " + Test.directUpdate({test: "123"}, {$set: {foo: "bar"}}))
-    
+
     console.log("FindOne:");
     console.log(Test.directFindOne({foo: "bar"}));
-    
+
     console.log("Exists: "+ Test.directExists({test: "123"}));
 
-    console.log("Find:"); 
+    console.log("Find:");
     console.log(Test.directFind({test:"123"}));
-   
+
     console.log("Remove: "+ Test.directRemove({test: "123"}));
-    
+
     console.log("Count: " + Test.directFind({test:"123"}).length);
-    
+
   });
 }
 ```
@@ -97,4 +99,3 @@ Count: 0
 
 [gittip-badge]: https://raw.github.com/twolfson/gittip-badge/0.1.0/dist/gittip.png
 [aaronthorp]: https://www.gittip.com/aaronthorp/
-
